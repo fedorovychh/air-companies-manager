@@ -23,6 +23,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 public class FlightServiceImpl implements FlightService {
+    private static final int EXPIRATION_LIMIT_IN_HOURS = 24;
+
     private final FlightMapper flightMapper;
     private final AirCompanyService airCompanyService;
     private final FlightRepository flightRepository;
@@ -48,6 +50,14 @@ public class FlightServiceImpl implements FlightService {
                         status,
                         pageable)
                 .stream()
+                .map(flightMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<FlightResponseDto> findAllExpired(Pageable pageable) {
+        LocalDateTime expirationLimit = LocalDateTime.now().minusHours(EXPIRATION_LIMIT_IN_HOURS);
+        return flightRepository.findAllExpired(expirationLimit, Status.ACTIVE, pageable).stream()
                 .map(flightMapper::toDto)
                 .collect(Collectors.toList());
     }

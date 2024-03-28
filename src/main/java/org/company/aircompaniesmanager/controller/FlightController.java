@@ -35,6 +35,16 @@ public class FlightController {
         return flightService.findAll(pageable);
     }
 
+    @GetMapping("/expired")
+    @Operation(
+            summary = "Find flight with active status and expired time",
+            description = "Retrieves detailed information "
+                    + "about flights by specified status with specified status"
+    )
+    List<FlightResponseDto> findAllExpired(Pageable pageable) {
+        return flightService.findAllExpired(pageable);
+    }
+
     @GetMapping("/{status}/company")
     @Operation(
             summary = "Find flight by status and company",

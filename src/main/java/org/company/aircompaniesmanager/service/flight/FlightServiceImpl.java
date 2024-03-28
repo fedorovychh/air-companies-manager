@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import org.company.aircompaniesmanager.dto.air.company.AirCompanyResponseDto;
 import org.company.aircompaniesmanager.dto.flight.FlightRequestDto;
 import org.company.aircompaniesmanager.dto.flight.FlightResponseDto;
 import org.company.aircompaniesmanager.dto.flight.FlightUpdateRequestDto;
@@ -14,6 +15,7 @@ import org.company.aircompaniesmanager.model.Airplane;
 import org.company.aircompaniesmanager.model.Flight;
 import org.company.aircompaniesmanager.model.Flight.Status;
 import org.company.aircompaniesmanager.repository.FlightRepository;
+import org.company.aircompaniesmanager.service.air.company.AirCompanyService;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,11 +24,30 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class FlightServiceImpl implements FlightService {
     private final FlightMapper flightMapper;
+    private final AirCompanyService airCompanyService;
     private final FlightRepository flightRepository;
 
     @Override
     public List<FlightResponseDto> findAll(Pageable pageable) {
         return flightRepository.findAll(pageable).stream()
+                .map(flightMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<FlightResponseDto> findAllByCompanyName(
+            String name,
+            String statusString,
+            Pageable pageable
+    ) {
+        Status status = Status.valueOf(statusString.toUpperCase());
+        AirCompanyResponseDto airCompanyResponseDto = airCompanyService.findByName(name);
+        return flightRepository
+                .findAllByAirCompanyIdAndStatus(
+                        airCompanyResponseDto.getId(),
+                        status,
+                        pageable)
+                .stream()
                 .map(flightMapper::toDto)
                 .collect(Collectors.toList());
     }

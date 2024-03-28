@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -32,6 +33,20 @@ public class FlightController {
             description = "Retrieves detailed information about all flights")
     List<FlightResponseDto> findAll(Pageable pageable) {
         return flightService.findAll(pageable);
+    }
+
+    @GetMapping("/{status}/company")
+    @Operation(
+            summary = "Find flight by company",
+            description = "Retrieves detailed information "
+                    + "about flights by specified company"
+    )
+    List<FlightResponseDto> findAllByCompanyNameAndStatus(
+            @RequestParam String name,
+            @PathVariable String status,
+            Pageable pageable
+    ) {
+        return flightService.findAllByCompanyName(name, status, pageable);
     }
 
     @GetMapping("/{id}")

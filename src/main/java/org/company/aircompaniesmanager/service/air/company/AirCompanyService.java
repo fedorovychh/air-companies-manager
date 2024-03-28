@@ -11,6 +11,8 @@ public interface AirCompanyService {
 
     AirCompanyResponseDto findById(Long id);
 
+    AirCompanyResponseDto findByName(String name);
+
     AirCompanyResponseDto save(AirCompanyRequestDto requestDto);
 
     AirCompanyResponseDto updateById(Long id, AirCompanyUpdateRequestDto requestDto);

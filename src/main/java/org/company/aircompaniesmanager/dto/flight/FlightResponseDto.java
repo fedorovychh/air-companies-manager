@@ -8,6 +8,7 @@ import org.company.aircompaniesmanager.model.Flight.Status;
 public class FlightResponseDto {
     private Long id;
     private Status status;
+    private Long airCompanyId;
     private Long airplaneId;
     private String departureCountry;
     private String destinationCountry;

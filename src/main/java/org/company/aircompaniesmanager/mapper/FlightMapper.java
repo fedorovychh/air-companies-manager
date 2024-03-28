@@ -10,6 +10,7 @@ import org.mapstruct.Mapping;
 @Mapper(config = MapperConfig.class)
 public interface FlightMapper {
     @Mapping(target = "airplaneId", source = "airplane.id")
+    @Mapping(target = "airCompanyId", source = "airCompany.id")
     FlightResponseDto toDto(Flight flight);
 
     Flight toEntity(FlightRequestDto requestDto);

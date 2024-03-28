@@ -36,6 +36,14 @@ public class AirCompanyServiceImpl implements AirCompanyService {
     }
 
     @Override
+    public AirCompanyResponseDto findByName(String name) {
+        AirCompany airCompany = airCompanyRepository.findByName(name).orElseThrow(
+                () -> new EntityNotFoundException("Can't find air company by name: " + name)
+        );
+        return airCompanyMapper.toDto(airCompany);
+    }
+
+    @Override
     public AirCompanyResponseDto save(AirCompanyRequestDto requestDto) {
         AirCompany airCompany = airCompanyRepository.save(airCompanyMapper.toEntity(requestDto));
         return airCompanyMapper.toDto(airCompany);

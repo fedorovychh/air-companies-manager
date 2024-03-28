@@ -37,12 +37,22 @@ public class FlightController {
 
     @GetMapping("/expired")
     @Operation(
-            summary = "Find flight with active status and expired time",
+            summary = "Find flights with active status and expired time",
             description = "Retrieves detailed information "
                     + "about flights by specified status with specified status"
     )
     List<FlightResponseDto> findAllExpired(Pageable pageable) {
         return flightService.findAllExpired(pageable);
+    }
+
+    @GetMapping("/overdue")
+    @Operation(
+            summary = "Find flights with completed status and overdue time",
+            description = "Retrieves detailed information "
+                    + "about flights by completed status with overdue time"
+    )
+    List<FlightResponseDto> findAllOverdue(Pageable pageable) {
+        return flightService.findAllOverdue(pageable);
     }
 
     @GetMapping("/{status}/company")

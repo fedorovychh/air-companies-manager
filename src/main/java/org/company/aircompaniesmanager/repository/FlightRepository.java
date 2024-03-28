@@ -13,4 +13,11 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
 
     @Query("SELECT f FROM Flight f WHERE (f.startTime > :localDateTime) AND (f.status = :status)")
     List<Flight> findAllExpired(LocalDateTime localDateTime, Status status, Pageable pageable);
+
+    @Query(
+            value = "SELECT * FROM `air_companies_management`.`flights` "
+                    + "WHERE TIMESTAMPDIFF(second, '2016/06/30 12:00', '2018/10/18 12:45') > 10",
+            nativeQuery = true
+    )
+    List<Flight> findAllOverdue(Pageable pageable);
 }

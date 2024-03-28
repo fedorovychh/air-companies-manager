@@ -63,6 +63,13 @@ public class FlightServiceImpl implements FlightService {
     }
 
     @Override
+    public List<FlightResponseDto> findAllOverdue(Pageable pageable) {
+        return flightRepository.findAllOverdue(pageable).stream()
+                .map(flightMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public FlightResponseDto findById(Long id) {
         Flight flight = flightRepository.findById(id).orElseThrow(() ->
                 new EntityNotFoundException("Can't find flight with id: " + id)

@@ -17,6 +17,8 @@ public interface FlightService {
 
     List<FlightResponseDto> findAllExpired(Pageable pageable);
 
+    List<FlightResponseDto> findAllOverdue(Pageable pageable);
+
     FlightResponseDto findById(Long id);
 
     FlightResponseDto save(FlightRequestDto requestDto);

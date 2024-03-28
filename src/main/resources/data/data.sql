@@ -1,0 +1,35 @@
+INSERT INTO air_companies (name, company_type, foundation_date)
+VALUES ('name', 'type', '2024-01-01'),
+    ('Delta Air Lines', 'Airlines', '1928-12-03'),
+    ('American Airlines', 'Airlines', '1926-04-15'),
+    ('Southwest Airlines', 'Airlines', '1967-03-15'),
+    ('Spirit Airlines', 'Airlines', '1983-01-01'),
+    ('SpaceX', 'Astronautics', '2002-03-14'),
+    ('Lockheed Martin', 'Aerospace', '1995-03-01'),
+    ('Northrop Grumman Corporation', 'Aerospace', '1994-01-01'),
+    ('Boeing Co', 'Airplane', '1916-07-15');
+
+INSERT INTO airplanes (
+    factory_serial_number,
+    air_company_id,
+    number_of_flights,
+    flight_distance,
+    fuel_capacity,
+    type,
+    creation_date
+) VALUES ('number', 1, 12, 3000000, 1200, 'Airbus', '2024-01-01'),
+         ('30020B', 1, 12, 2039, 1500, 'Airbus', '2024-01-01'),
+         ('27620B', 2, 49, 35735, 1800, 'Airbus', '2024-01-01'),
+         ('14920B', 3, 44, 38787, 3000, 'Airbus', '2024-01-01'),
+         ('14227B', 4, 35, 36219, 2500, 'Airbus', '2024-01-01'),
+         ('19027C', 5, 178, 452897, 3700, 'Airbus', '2024-01-01'),
+         ('90047E', 6, 16, 1783, 4500, 'Airbus', '2024-01-01'),
+         ('20954K', 7, 866, 900000, 5000, 'Airbus', '2024-01-01'),
+         ('27891B', 8, 136, 519697, 3444, 'Airbus', '2024-01-01'),
+         ('21987J', 9, 246, 37487, 1200, 'Airbus', '2024-01-01'),
+         ('91331L', 5, 468, 800653, 1200, 'Airbus', '2024-01-01'),
+         ('17979P', 5, 222, 652333, 1200, 'Airbus', '2024-01-01'),
+         ('18994O', 6, 290, 756678, 1200, 'Airbus', '2024-01-01'),
+         ('17987I', 6, 134, 123345, 1200, 'Airbus', '2024-01-01'),
+         ('79849S', 7, 65, 75632, 1200, 'Airbus', '2024-01-01'),
+         ('19894R', 7, 211, 253000, 1200, 'Airbus', '2024-01-01');

@@ -8,6 +8,7 @@ import org.company.aircompaniesmanager.dto.airplane.AirplaneRequestDto;
 import org.company.aircompaniesmanager.dto.airplane.AirplaneResponseDto;
 import org.company.aircompaniesmanager.dto.airplane.AirplaneUpdateRequestDto;
 import org.company.aircompaniesmanager.service.airplane.AirplaneService;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,8 +30,8 @@ public class AirplaneController {
     @GetMapping
     @Operation(summary = "Find all airplanes",
             description = "Retrieves detailed information about all airplanes")
-    public List<AirplaneResponseDto> findAll() {
-        return airplaneService.findAll();
+    public List<AirplaneResponseDto> findAll(Pageable pageable) {
+        return airplaneService.findAll(pageable);
     }
 
     @GetMapping("/{id}")

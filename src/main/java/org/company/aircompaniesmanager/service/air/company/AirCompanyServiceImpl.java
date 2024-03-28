@@ -10,6 +10,7 @@ import org.company.aircompaniesmanager.dto.air.company.AirCompanyUpdateRequestDt
 import org.company.aircompaniesmanager.mapper.AirCompanyMapper;
 import org.company.aircompaniesmanager.model.AirCompany;
 import org.company.aircompaniesmanager.repository.AirCompanyRepository;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,8 +21,8 @@ public class AirCompanyServiceImpl implements AirCompanyService {
     private final AirCompanyRepository airCompanyRepository;
 
     @Override
-    public List<AirCompanyResponseDto> findAll() {
-        return airCompanyRepository.findAll().stream()
+    public List<AirCompanyResponseDto> findAll(Pageable pageable) {
+        return airCompanyRepository.findAll(pageable).stream()
                 .map(airCompanyMapper::toDto)
                 .collect(Collectors.toList());
     }

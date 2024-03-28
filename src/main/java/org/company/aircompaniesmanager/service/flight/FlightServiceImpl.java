@@ -14,6 +14,7 @@ import org.company.aircompaniesmanager.model.Airplane;
 import org.company.aircompaniesmanager.model.Flight;
 import org.company.aircompaniesmanager.model.Flight.Status;
 import org.company.aircompaniesmanager.repository.FlightRepository;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,8 +25,8 @@ public class FlightServiceImpl implements FlightService {
     private final FlightRepository flightRepository;
 
     @Override
-    public List<FlightResponseDto> findAll() {
-        return flightRepository.findAll().stream()
+    public List<FlightResponseDto> findAll(Pageable pageable) {
+        return flightRepository.findAll(pageable).stream()
                 .map(flightMapper::toDto)
                 .collect(Collectors.toList());
     }

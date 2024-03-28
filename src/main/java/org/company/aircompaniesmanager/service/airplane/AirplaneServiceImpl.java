@@ -11,6 +11,7 @@ import org.company.aircompaniesmanager.mapper.AirplaneMapper;
 import org.company.aircompaniesmanager.model.AirCompany;
 import org.company.aircompaniesmanager.model.Airplane;
 import org.company.aircompaniesmanager.repository.AirplaneRepository;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,8 +30,8 @@ public class AirplaneServiceImpl implements AirplaneService {
     }
 
     @Override
-    public List<AirplaneResponseDto> findAll() {
-        return airplaneRepository.findAll().stream()
+    public List<AirplaneResponseDto> findAll(Pageable pageable) {
+        return airplaneRepository.findAll(pageable).stream()
                 .map(airplaneMapper::toDto)
                 .collect(Collectors.toList());
     }

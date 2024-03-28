@@ -4,9 +4,10 @@ import java.util.List;
 import org.company.aircompaniesmanager.dto.air.company.AirCompanyRequestDto;
 import org.company.aircompaniesmanager.dto.air.company.AirCompanyResponseDto;
 import org.company.aircompaniesmanager.dto.air.company.AirCompanyUpdateRequestDto;
+import org.springframework.data.domain.Pageable;
 
 public interface AirCompanyService {
-    List<AirCompanyResponseDto> findAll();
+    List<AirCompanyResponseDto> findAll(Pageable pageable);
 
     AirCompanyResponseDto findById(Long id);
 

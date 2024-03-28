@@ -9,6 +9,7 @@ import org.company.aircompaniesmanager.dto.air.company.AirCompanyRequestDto;
 import org.company.aircompaniesmanager.dto.air.company.AirCompanyResponseDto;
 import org.company.aircompaniesmanager.dto.air.company.AirCompanyUpdateRequestDto;
 import org.company.aircompaniesmanager.service.air.company.AirCompanyService;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,8 +32,8 @@ public class AirCompanyController {
     @GetMapping
     @Operation(summary = "Find all air companies",
             description = "Retrieves detailed information about all companies")
-    private List<AirCompanyResponseDto> findAll() {
-        return airCompanyService.findAll();
+    private List<AirCompanyResponseDto> findAll(Pageable pageable) {
+        return airCompanyService.findAll(pageable);
     }
 
     @GetMapping("/{id}")

@@ -37,9 +37,9 @@ public class FlightController {
 
     @GetMapping("/{status}/company")
     @Operation(
-            summary = "Find flight by company",
+            summary = "Find flight by status and company",
             description = "Retrieves detailed information "
-                    + "about flights by specified company"
+                    + "about flights by specified company with specified status"
     )
     List<FlightResponseDto> findAllByCompanyNameAndStatus(
             @RequestParam String name,

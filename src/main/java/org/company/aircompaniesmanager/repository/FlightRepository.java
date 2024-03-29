@@ -16,7 +16,8 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
 
     @Query(
             value = "SELECT * FROM `air_companies_management`.`flights` "
-                    + "WHERE TIMESTAMPDIFF(minute, start_time, end_time) >= estimated_time",
+                    + "WHERE TIMESTAMPDIFF(minute, start_time, end_time) >= estimated_time "
+                    + "AND status = 'COMPLETED'",
             nativeQuery = true
     )
     List<Flight> findAllOverdue(Pageable pageable);

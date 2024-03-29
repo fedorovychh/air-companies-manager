@@ -25,19 +25,25 @@ public class Airplane {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false, length = 12)
     private String factorySerialNumber;
+
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @JoinColumn(name = "air_company_id")
     @ManyToOne(fetch = FetchType.LAZY)
     private AirCompany airCompany;
+
     private int numberOfFlights;
     private double flightDistance;
     private double fuelCapacity;
+
     @Column(nullable = false, length = 56)
     private String type;
+
     private LocalDate creationDate;
+
     @Column(name = "is_deleted", nullable = false, columnDefinition = "boolean default false")
     private boolean isDeleted = false;
 

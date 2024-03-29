@@ -9,7 +9,7 @@ import org.springframework.data.domain.Pageable;
 public interface FlightService {
     List<FlightResponseDto> findAll(Pageable pageable);
 
-    List<FlightResponseDto> findAllByCompanyName(
+    List<FlightResponseDto> findAllByCompanyAndStatus(
             String companyName,
             String statusString,
             Pageable pageable

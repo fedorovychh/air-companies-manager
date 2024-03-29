@@ -21,6 +21,7 @@ public class FlightRequestDto {
     @NotNull
     @Positive
     private double distance;
+    // Estimated time in hours
     @NotNull
     @Positive
     private double estimatedTime;

@@ -5,8 +5,6 @@ You can create companies, operate information about them, move airplanes between
 
 ## Demo
 
-[//]: # ([Watch demonstrating video about how this Web Application works]&#40;https://youtu.be/SC39yV5yZAw&#41;)
-
 ![Demonstrating](images/swagger-ui.png)
 
 ## Tech Stack

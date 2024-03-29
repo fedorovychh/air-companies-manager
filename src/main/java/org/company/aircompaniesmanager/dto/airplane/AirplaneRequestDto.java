@@ -10,19 +10,25 @@ import lombok.Data;
 public class AirplaneRequestDto {
     @NotBlank
     private String factorySerialNumber;
+
     @Positive
     private Long airCompanyId;
+
     @Positive
     @NotNull
     private int numberOfFlights;
+
     @Positive
     @NotNull
     private double flightDistance;
+
     @Positive
     @NotNull
     private double fuelCapacity;
+
     @NotBlank
     private String type;
+
     @NotNull
     private LocalDate creationDate;
 }

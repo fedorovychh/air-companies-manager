@@ -10,9 +10,9 @@ import org.company.aircompaniesmanager.dto.airplane.AirplaneUpdateRequestDto;
 import org.company.aircompaniesmanager.service.airplane.AirplaneService;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -48,13 +48,13 @@ public class AirplaneController {
         return airplaneService.save(requestDto);
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{airplaneId}/move")
     @Operation(summary = "Reassign to another company",
             description = "Updates airplane company")
     public AirplaneResponseDto updateCompany(
-            @PathVariable Long id,
+            @PathVariable Long airplaneId,
             @RequestBody AirplaneUpdateRequestDto requestDto
     ) {
-        return airplaneService.updateCompany(id, requestDto);
+        return airplaneService.updateCompany(airplaneId, requestDto);
     }
 }

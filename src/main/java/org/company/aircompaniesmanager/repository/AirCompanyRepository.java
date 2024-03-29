@@ -8,6 +8,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AirCompanyRepository extends JpaRepository<AirCompany, Long> {
     Optional<AirCompany> findByName(String name);
-
-    void deleteByName(String name);
 }

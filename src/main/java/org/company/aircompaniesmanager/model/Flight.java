@@ -27,31 +27,40 @@ public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Status status;
+
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @JoinColumn(name = "air_company_id", nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
     private AirCompany airCompany;
+
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @JoinColumn(name = "airplane_id", nullable = false)
     @ManyToOne(fetch = FetchType.LAZY)
     private Airplane airplane;
+
     @Column(nullable = false)
     private String departureCountry;
+
     @Column(nullable = false)
     private String destinationCountry;
+
     @Column(nullable = false)
     private double distance;
+
     @Column(nullable = false)
     private double estimatedTime;
+
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private LocalDateTime delayStartTime;
     private LocalDateTime creationDate;
+
     @Column(name = "is_deleted", nullable = false, columnDefinition = "boolean default false")
     private boolean isDeleted = false;
 

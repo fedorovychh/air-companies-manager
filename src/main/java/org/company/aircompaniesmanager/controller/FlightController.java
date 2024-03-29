@@ -55,7 +55,7 @@ public class FlightController {
         return flightService.findAllOverdue(pageable);
     }
 
-    @GetMapping("/{status}/company")
+    @GetMapping("/by-company-and-status")
     @Operation(
             summary = "Find flight by status and company",
             description = "Retrieves detailed information "
@@ -63,10 +63,10 @@ public class FlightController {
     )
     List<FlightResponseDto> findAllByCompanyNameAndStatus(
             @RequestParam String name,
-            @PathVariable String status,
+            @RequestParam String status,
             Pageable pageable
     ) {
-        return flightService.findAllByCompanyName(name, status, pageable);
+        return flightService.findAllByCompanyAndStatus(name, status, pageable);
     }
 
     @GetMapping("/{id}")

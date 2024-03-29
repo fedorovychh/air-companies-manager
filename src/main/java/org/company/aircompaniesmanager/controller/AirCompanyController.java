@@ -10,6 +10,7 @@ import org.company.aircompaniesmanager.dto.air.company.AirCompanyResponseDto;
 import org.company.aircompaniesmanager.dto.air.company.AirCompanyUpdateRequestDto;
 import org.company.aircompaniesmanager.service.air.company.AirCompanyService;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -63,8 +65,8 @@ public class AirCompanyController {
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete air company",
             description = "Removes air company")
-    private String deleteById(@PathVariable Long id) {
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    private void deleteById(@PathVariable Long id) {
         airCompanyService.deleteById(id);
-        return String.format("Company with id: '%s' deleted successfully.", id);
     }
 }

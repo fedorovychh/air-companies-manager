@@ -37,7 +37,7 @@ public class FlightServiceImpl implements FlightService {
     }
 
     @Override
-    public List<FlightResponseDto> findAllByCompanyName(
+    public List<FlightResponseDto> findAllByCompanyAndStatus(
             String name,
             String statusString,
             Pageable pageable

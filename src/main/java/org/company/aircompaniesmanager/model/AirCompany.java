@@ -20,12 +20,16 @@ public class AirCompany {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false, unique = true, length = 72)
     private String name;
+
     @Column(nullable = false, length = 56)
     private String companyType;
+
     @Column(nullable = false)
     private LocalDate foundationDate;
+
     @Column(name = "is_deleted", nullable = false, columnDefinition = "boolean default false")
     private boolean isDeleted = false;
 

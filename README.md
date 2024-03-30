@@ -5,7 +5,13 @@ You can create companies, operate information about them, move airplanes between
 
 ## Demo
 
-![Demonstrating](images/swagger-ui.png)
+### Swagger UI
+
+![Swagger-UI](images/swagger-ui.png)
+
+### Postman Collection
+
+![Postman-Collection](images/postman-collection.png)
 
 ## Tech Stack
 
@@ -76,3 +82,7 @@ Started AirCompaniesManagerApplication in 20 seconds
 ```
 
 7. Open browser and follow address: http://localhost:8088/api/swagger-ui.html
+
+Swagger UI added to demonstrate what endpoints does API contain.
+
+**To test API properly, please use this [Postman Collection](https://www.postman.com/spaceflight-architect-34290083/workspace/public-workspace/api/3d017b1a-8a36-4ff0-9c24-1aa68bd4606d).**

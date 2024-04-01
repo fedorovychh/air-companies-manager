@@ -5,6 +5,8 @@ You can create companies, operate information about them, move airplanes between
 
 ## Demo
 
+[Video: how to run and test Air Companies Management API?](https://youtu.be/A4GtEhIhfSo)
+
 ### Swagger UI
 
 ![Swagger-UI](images/swagger-ui.png)
@@ -33,7 +35,7 @@ Technologies that are used to create an efficient and well-organized environment
 
 - **Maven**
 
-## Run Locally
+## How to run?
 
 **This API requires JDK 11 and Docker!!!**
 
